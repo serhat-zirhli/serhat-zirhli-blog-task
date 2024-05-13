@@ -1,0 +1,26 @@
+<div class="author">
+    <h1 class="heading">Hi, I am Serhat Zirhli.</h1>
+    <p class="body">web developer</p>
+</div>
+
+<img src="/img/developer-image.jpg" alt="developer coding at home" class="developer-image">
+
+<section class="articles">
+    <h2 class="heading">Latest Posts</h2>
+    <ul class="articles-list">
+        <% data.forEach(post=> { %>
+            <li>
+                <a href="/post/<%= post._id %>">
+                    <span><%= post.title %></span>
+                    <span class="date"><%= post.createdAt.toLocaleDateString(undefined, {weekday:"long",year: "numeric" ,month:"long",day:"numeric"}) %></span>
+                </a>
+            </li>
+            <% }) %>
+    </ul>
+
+    <% if (nextPage !==null) { %>
+        <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Order Post</a>
+        <% } %>
+
+
+</section>

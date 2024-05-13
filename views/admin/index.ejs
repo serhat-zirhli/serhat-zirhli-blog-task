@@ -1,0 +1,23 @@
+<h3>Sign In</h3>
+<% if (typeof alert != 'undefined') { %>
+    <div class="alert-list">
+        <ul>
+            <% alert.forEach(element => { %>
+            <li><%= element.msg %></li>
+            <% }) %>
+        </ul>
+    </div>
+<% } %>
+<form action="/admin" method="POST">
+    <div class="form-group">
+        <label for="username">Username *</label>
+        <input type="text" placeholder="Enter Username" name="username">
+    </div>
+<div class="form-group">
+        <label for="password">Password *</label>
+        <input type="password" placeholder="Enter Password" name="password">
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Login" class="btn">
+    </div>
+</form>

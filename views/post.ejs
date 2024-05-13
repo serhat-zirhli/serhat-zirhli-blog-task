@@ -1,0 +1,59 @@
+<h2>
+    <%= data.title %>
+</h2>
+<article class="article">
+    <div class="article-text"><%- data.body %></div>
+    <% if (data.comments.length !== 0) { %>
+        <div class="comment-list">
+            <div class="comment-header">Comments</div>
+            <% data.comments.forEach((comment)=> { %>
+                <div class="list">
+                    <div class="author">
+                        <div class="title">
+                            <%- comment.author %>
+                        </div>
+                        <div class="email">
+                            <%- comment.email %>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <%- comment.comment %>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+        <% } %>
+            <div class="comment-form">
+                <div class="head">Leave a comment</div>
+                <% if (typeof alert != 'undefined') { %>
+                    <div class="alert-list">
+                        <ul>
+                            <% alert.forEach(element => { %>
+                            <li><%= element.msg %></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                <% } %>
+                <form action="/post/<%= data._id %>/comments" method="POST">
+                    <div class="form-group">
+                        <label for="author">Name Surname *</label>
+                        <input type="text" name="author" placeholder="Enter Your Name and Surname">
+                        <div class="form-error" id="author-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail*</label>
+                        <input type="text" name="email" placeholder="Enter Your E-Mail Address">
+                        <div class="form-error" id="email-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Comment*</label>
+                        <textarea name="comment" cols="5" rows="10"></textarea>
+                        <div class="form-error" id="comment-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Send" class="btn">
+                    </div>
+                </form>
+                
+            </div>
+</article>
