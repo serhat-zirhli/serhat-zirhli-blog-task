@@ -95,7 +95,7 @@ router.post('/post/:id/comments', [
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         const alert = errors.array();
-        const data = await Post.findById(req.params.id).exec();
+        const data = await Post.findById(req.params.id).populate('comments').exec();
         const locals = {
             title: data.title,
             description: "Serhat Zirhli Blog Task"

@@ -9,16 +9,10 @@
             <% data.comments.forEach((comment)=> { %>
                 <div class="list">
                     <div class="author">
-                        <div class="title">
-                            <%- comment.author %>
-                        </div>
-                        <div class="email">
-                            <%- comment.email %>
-                        </div>
+                        <div class="title"><%- comment.author %></div>
+                        <div class="email"><%- comment.email %></div>
                     </div>
-                    <div class="comment">
-                        <%- comment.comment %>
-                    </div>
+                    <div class="comment"><%- comment.comment %></div>
                 </div>
                 <% }) %>
         </div>
