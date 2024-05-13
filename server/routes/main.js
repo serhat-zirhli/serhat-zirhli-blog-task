@@ -41,8 +41,6 @@ router.get('', async (req, res) => {
 
 /* GET / Post :id */
 router.get('/post/:id', async (req, res) => {
-
-
     try {
         let slug = req.params.id;
 
@@ -53,7 +51,6 @@ router.get('/post/:id', async (req, res) => {
         const locals = {
             title: data.title,
             description: "Serhat Zirhli Blog Task"
-
         }
         res.render('post', { locals, data, currentRoute: `/post/${slug}` });
     } catch (error) {
@@ -63,16 +60,11 @@ router.get('/post/:id', async (req, res) => {
 });
 
 /* Post / Post - searchTerm */
-
-
 router.post('/search', async (req, res) => {
-
-
     try {
         const locals = {
             title: "Search",
             description: "Serhat Zirhli Blog Task"
-
         }
 
         let searchTerm = req.body.searchTerm;
@@ -133,76 +125,6 @@ router.post('/post/:id/comments', [
     }
 
 });
-
-
-
-
-/*
-router.get('', async (req, res) => {
-    const locals = {
-        title: "Blog Task",
-        description: "Serhat Zirhli Blog Task"
-
-    }
-
-    try {
-        const data = await Post.find();
-        res.render('index', { locals, data });
-    } catch (error) {
-        console.log(error)
-    }
-    
-});
-*/
-
-/* 
-function insertPostData() {
-    Post.insertMany([
-        {
-            title: "Raygun Tools for Performance and Error Monitoring",
-            body: "Building web applications is hard. You need to design, debug, and deliver a fast application: on both the client and server side! "
-        },{
-            title: "Google Flutter From Scratch",
-            body: "Flutter is fast becoming one of the most popular frameworks for developing cross-platform mobile apps."
-        },{
-            title: "Web Accessibility: the Complete Learning Guide",
-            body: "Web accessibility (often referred to by its abbreviated “a11y” form) is something many internet users don’t think about,"
-        },{
-            title: "Web Accessibility With ARIA",
-            body: "Using standard HTML alone, modern web apps can lock out users with accessibility needs. "
-        },{
-            title: "Code Your First API With Node.js and Express",
-            body: "If you've spent any amount of time with modern web development, you will have come across terms like REST and API."
-        },{
-            title: "Get Started With Pusher",
-            body: "Real-time communication is a holy grail of web development, and we finally have the ability to incorporate it in our applications, thanks to the Web Sockets API. "
-        },{
-            title: "WordPress Gutenberg Block API",
-            body: "The new WordPress editor (codenamed Gutenberg) is due for release in version 5.0."
-        },{
-            title: "Regular Expressions With Go",
-            body: "In this two-part series  you'll learn what regular expressions are and how to use regular expressions effectively in Go to accomplish many common tasks."
-        },{
-            title: "Creating an Image Editor Using CamanJS",
-            body: "This tutorial will teach you how to create a canvas based image editor using a JavaScript library called CamanJS."
-        }
-    ])
-}
-insertPostData();
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 router.get('/about', (req, res) => {
     res.render('about', {
